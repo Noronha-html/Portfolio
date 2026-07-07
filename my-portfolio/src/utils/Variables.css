@@ -1,0 +1,10 @@
+:root {
+    --bg: #070713;
+    --gradient-start: #6f3dff;
+    --gradient-end: #00d1ff;
+    --primary: #eaf0ff;
+    --muted: #aab3c9;
+    --card: #0f1620;
+    --accent: #7a5cff;
+    --container: 1200px;
+}
