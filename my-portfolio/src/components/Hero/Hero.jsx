@@ -1,9 +1,10 @@
 import "./Hero.css";
+import myImg from "../../assets/images/my-github-img.png";
 
 function Hero() {
     return (
         <div className="hero">
-            <img src="../../assets/images/my-github-img.png" alt="Minha foto" />
+            <img src={myImg} alt="Minha foto" />
             <div className="hero-text">
                 <h1>
                     Olá!<br />
