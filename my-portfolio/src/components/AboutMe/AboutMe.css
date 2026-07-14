@@ -1,0 +1,45 @@
+@import "../../utils/Variables.css";
+
+.about-me {
+    display: flex;
+    flex-direction: row;
+    padding: 2rem;
+    background-color: var(--bg);
+}
+
+.about-me__title {
+    font-size: 2.3rem;
+    margin-bottom: 1rem;
+}
+
+.about-me__text {
+    font-size: 2rem;
+    line-height: 1.5;
+}
+
+.about-me__right {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.about-me__card {
+    flex: 1 1 calc(33.333% - 1rem);
+    background-color: var(--bg);
+    border: 1px solid var(--accent);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-me__card h3 {
+    font-size: 2rem;
+    margin: 0.5rem 0;
+}
+
+.about-me__card p {
+    font-size: 1.6rem;
+    text-align: center;
+}

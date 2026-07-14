@@ -33,7 +33,7 @@
     border: 4px solid transparent;
 }
 
-.skills li :first-child {
+.skills li .skill-icon {
     font-size: 2rem;
     color: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
 }
