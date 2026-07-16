@@ -1,43 +1,92 @@
-@import "../../utils/Variables.css";
-
 .hero {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    padding: 50px 0;
-    gap: 50px;
-    margin-inline: 10%;
-    /*border-radius: 30px;
-    background: linear-gradient(var(--bg), var(--bg)) padding-box,
-                linear-gradient(to right, var(--gradient-start), var(--gradient-end)) border-box;
-    border: 4px solid transparent;*/
-    
+    gap: clamp(32px, 6vw, 80px);
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: clamp(56px, 10vw, 120px) clamp(20px, 5vw, 48px);
+    overflow: hidden;
 }
 
-.hero img {
-    border-radius: 50%;
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    margin-right: 20px;
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 8%;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle, var(--gradient-start), var(--gradient-end) 55%, transparent 72%);
+    filter: blur(90px);
+    opacity: 0.35;
+    transform: translateY(-50%);
+    z-index: 0;
 }
 
 .hero-text {
-    max-width: 600px;
-    text-align: start;
+    position: relative;
+    z-index: 1;
+    order: 1;
+    flex: 1 1 480px;
+}
+
+.hero > img {
+    position: relative;
+    z-index: 1;
+    order: 2;
+    width: min(360px, 40vw);
+    aspect-ratio: 1 / 1.1;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-strong);
+    box-shadow: var(--shadow), var(--glow);
 }
 
 .hero-text h1 {
-    font-size: 2.5rem;
+    font-size: clamp(2.1rem, 4.5vw, 3.4rem);
+    font-weight: 700;
+    line-height: 1.15;
     margin-bottom: 20px;
 }
 
-.hero-text h1 strong {
-    color: var(--accent);
+.hero-text h1::first-line {
+    font-family: var(--font-mono);
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--gradient-end);
+}
+
+.hero-text strong {
+    font-weight: 700;
+    background: linear-gradient(100deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .hero-text p {
-    font-size: 1.2rem;
-    line-height: 1.5;
+    max-width: 460px;
+    color: var(--muted);
+    font-size: 1.02rem;
+}
+
+@media (max-width: 860px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text {
+        order: 2;
+    }
+
+    .hero > img {
+        order: 1;
+        width: min(280px, 60vw);
+    }
+
+    .hero-text p {
+        margin: 0 auto;
+    }
 }

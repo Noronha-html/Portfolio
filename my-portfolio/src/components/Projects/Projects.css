@@ -1,45 +1,83 @@
-@import "../../utils/Variables.css";
-
 .projects {
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
-    background-color: var(--bg);
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: clamp(24px, 6vw, 48px) clamp(20px, 5vw, 48px) clamp(48px, 8vw, 100px);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    align-items: start;
 }
 
 .projects h2 {
-    font-size: 2.3rem;
-    margin-bottom: 1rem;
+    grid-column: 1 / -1;
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.projects h2::before {
+    content: "// projetos";
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--gradient-end);
+    margin-bottom: 12px;
 }
 
 .projects-card {
-    display: flex;
-    flex-direction: row;
-    background-color: var(--bg);
-    border: 1px solid var(--accent);
-    border-radius: 0.5rem;
-    padding: 1rem;
-    margin-bottom: 1rem;
+    background: linear-gradient(180deg, var(--card-soft), var(--card));
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projects-card::before {
+    content: "";
+    display: block;
+    height: 34px;
+    background-image:
+        radial-gradient(circle, var(--dot-red) 4px, transparent 4px),
+        radial-gradient(circle, var(--dot-yellow) 4px, transparent 4px),
+        radial-gradient(circle, var(--dot-green) 4px, transparent 4px);
+    background-position: 16px center, 32px center, 48px center;
+    background-repeat: no-repeat;
+    background-color: rgba(234, 240, 255, 0.03);
+    border-bottom: 1px solid var(--border);
+    opacity: 0.85;
+}
+
+.projects-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--border-strong);
+    box-shadow: var(--glow);
 }
 
 .projects-card img {
-    max-width: 100%;
-    border-radius: 0.5rem;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background: linear-gradient(135deg, rgba(111, 61, 255, 0.35), rgba(0, 209, 255, 0.25));
 }
 
 .projects-card__text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 1rem;
+    padding: 22px;
 }
 
 .projects-card__text h3 {
-    font-size: 2rem;
-    margin: 0.5rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
 }
 
 .projects-card__text p {
-    font-size: 1.6rem;
-    text-align: center;
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+@media (max-width: 560px) {
+    .projects {
+        grid-template-columns: 1fr;
+    }
 }

@@ -1,45 +1,103 @@
-@import "../../utils/Variables.css";
-
 .about-me {
-    display: flex;
-    flex-direction: row;
-    padding: 2rem;
-    background-color: var(--bg);
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: clamp(32px, 6vw, 72px);
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: clamp(48px, 8vw, 100px) clamp(20px, 5vw, 48px);
+}
+
+.about-me__left {
+    position: sticky;
+    top: 110px;
+    align-self: start;
 }
 
 .about-me__title {
-    font-size: 2.3rem;
-    margin-bottom: 1rem;
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.about-me__title::before {
+    content: "// sobre-mim";
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--gradient-end);
+    margin-bottom: 12px;
+    letter-spacing: 0.02em;
 }
 
 .about-me__text {
-    font-size: 2rem;
-    line-height: 1.5;
+    color: var(--muted);
+    font-size: 1.02rem;
+    max-width: 46ch;
 }
 
 .about-me__right {
     display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .about-me__card {
-    flex: 1 1 calc(33.333% - 1rem);
-    background-color: var(--bg);
-    border: 1px solid var(--accent);
-    border-radius: 0.5rem;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 28px;
+    background: linear-gradient(180deg, var(--card-soft), var(--card));
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-me__card::before {
+    content: "";
+    display: block;
+    width: 44px;
+    height: 10px;
+    margin-bottom: 20px;
+    background-image:
+        radial-gradient(circle, var(--dot-red) 4px, transparent 4px),
+        radial-gradient(circle, var(--dot-yellow) 4px, transparent 4px),
+        radial-gradient(circle, var(--dot-green) 4px, transparent 4px);
+    background-position: 0 0, 16px 0, 32px 0;
+    background-repeat: no-repeat;
+    opacity: 0.7;
+}
+
+.about-me__card:hover {
+    transform: translateY(-6px);
+    border-color: var(--border-strong);
+    box-shadow: var(--glow);
+}
+
+.about-me__card svg {
+    font-size: 1.5rem;
+    color: var(--gradient-end);
+    margin-bottom: 14px;
 }
 
 .about-me__card h3 {
-    font-size: 2rem;
-    margin: 0.5rem 0;
+    font-size: 1.08rem;
+    font-weight: 600;
+    margin-bottom: 10px;
 }
 
 .about-me__card p {
-    font-size: 1.6rem;
-    text-align: center;
+    color: var(--muted);
+    font-size: 0.94rem;
+}
+
+@media (max-width: 860px) {
+    .about-me {
+        grid-template-columns: 1fr;
+    }
+
+    .about-me__left {
+        position: static;
+    }
+
+    .about-me__text {
+        max-width: none;
+    }
 }

@@ -1,47 +1,73 @@
-@import "../../utils/Variables.css";
-
 .skills {
-    padding: 50px 0;
-    text-align: center;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: clamp(24px, 6vw, 48px) clamp(20px, 5vw, 48px) clamp(48px, 8vw, 100px);
 }
 
 .skills h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: var(--accent);
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    font-weight: 700;
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.skills h2::before {
+    content: "// habilidades";
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--gradient-end);
+    margin-bottom: 12px;
 }
 
 .skills ul {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 20px;
-    padding-inline: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    padding: 32px clamp(20px, 5vw, 40px);
+    background: linear-gradient(180deg, var(--card-soft), var(--card));
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
 }
 
 .skills li {
-    height: 100px;
-    font-size: 1.2rem;
-    margin: 10px 0;
     display: flex;
     align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    background: linear-gradient(var(--bg), var(--bg)) padding-box,
-                linear-gradient(to right, var(--gradient-start), var(--gradient-end)) border-box;
-    border: 4px solid transparent;
+    gap: 10px;
+    padding: 12px 20px;
+    background: rgba(234, 240, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--primary);
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
 }
 
-.skills li .skill-icon {
-    font-size: 2rem;
-    color: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+.skills li:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-strong);
+    background: rgba(122, 92, 255, 0.1);
 }
 
-.skills li span {
-    margin-left: 10px;
-    color: transparent;
-    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+.skill-icon {
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
     -webkit-background-clip: text;
     background-clip: text;
+    color: var(--gradient-end);
+}
+
+@media (max-width: 560px) {
+    .skills ul {
+        gap: 10px;
+        padding: 24px 16px;
+    }
+
+    .skills li {
+        padding: 10px 16px;
+        font-size: 0.82rem;
+    }
 }

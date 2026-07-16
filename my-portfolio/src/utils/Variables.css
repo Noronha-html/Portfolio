@@ -1,10 +1,25 @@
 :root {
     --bg: #070713;
+    --bg-soft: #0b0d1c;
     --gradient-start: #6f3dff;
     --gradient-end: #00d1ff;
     --primary: #eaf0ff;
     --muted: #aab3c9;
     --card: #0f1620;
+    --card-soft: #101827;
     --accent: #7a5cff;
+    --border: rgba(234, 240, 255, 0.08);
+    --border-strong: rgba(234, 240, 255, 0.16);
+    --shadow: 0 30px 80px rgba(3, 3, 15, 0.55);
+    --glow: 0 0 0 1px rgba(122, 92, 255, 0.15), 0 20px 60px rgba(111, 61, 255, 0.25);
+    --radius-lg: 24px;
+    --radius-md: 16px;
+    --radius-sm: 10px;
+    --dot-red: #ff5f56;
+    --dot-yellow: #ffbd2e;
+    --dot-green: #27c93f;
+    --font-display: "Space Grotesk", "Segoe UI", sans-serif;
+    --font-body: "Inter", "Segoe UI", sans-serif;
+    --font-mono: "JetBrains Mono", "Fira Code", monospace;
     --container: 1200px;
 }

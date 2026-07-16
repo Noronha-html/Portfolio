@@ -1,0 +1,68 @@
+.contact {
+    max-width: var(--container);
+    margin: 0 auto clamp(56px, 8vw, 100px);
+    padding: clamp(48px, 8vw, 80px) clamp(24px, 6vw, 60px);
+    text-align: center;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(0, 209, 255, 0.18), transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(111, 61, 255, 0.22), transparent 45%),
+        linear-gradient(180deg, var(--card-soft), var(--card));
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+}
+
+.contact h2 {
+    font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.contact h2::before {
+    content: "// contato";
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--gradient-end);
+    margin-bottom: 12px;
+}
+
+.contact p {
+    color: var(--muted);
+    font-size: 1.02rem;
+    margin-bottom: 32px;
+}
+
+.contact button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 26px;
+    margin: 0 8px 12px;
+    font-size: 0.94rem;
+    font-weight: 500;
+    color: var(--primary);
+    background: rgba(234, 240, 255, 0.04);
+    border: 1px solid var(--border-strong);
+    border-radius: 999px;
+    transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact button:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    box-shadow: var(--glow);
+    border-color: transparent;
+}
+
+.contact button svg {
+    font-size: 1.05rem;
+}
+
+@media (max-width: 480px) {
+    .contact button {
+        width: 100%;
+        margin: 0 0 12px;
+        justify-content: center;
+    }
+}
